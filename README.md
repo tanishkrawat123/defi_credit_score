@@ -1,5 +1,7 @@
-DeFi Credit Scoring for Aave V2 Protocol
-Overview
+# DeFi Credit Scoring for Aave V2 Protocol
+
+## Overview
+
 This project develops a machine learning model to assign credit scores (0–1000) to wallets interacting with the Aave V2 protocol, based on transaction-level data. Higher scores indicate reliable behavior (e.g., consistent repayments, low liquidation risk), while lower scores reflect risky or bot-like behavior. The model leverages on-chain data to predict the probability of non-liquidation, scaled to a credit score.
 Methodology
 
@@ -36,12 +38,12 @@ score_distribution.png: Visualizes the score distribution.
 
 Review analysis.md for score distribution and wallet behavior insights.
 
-Setup
-
-Clone the repository: git clone <repo_url>
-Install dependencies: pip install -r requirements.txt
-Place user-wallet-transactions.json in data/.
-Run: python score_wallets.py
+### Setup
+1. Clone the repository: `git clone https://github.com/tanishkrawat123/defi_credit_score.git`
+2. Install dependencies: `pip install -r requirements.txt`
+3. Download the input data from [Google Drive](https://drive.google.com/file/d/1ISFbAXxadMrt7Zl96rmzzZmEKZnyW7FS/view) (or use the compressed version [here](https://drive.google.com/file/d/14ceBCLQ-BTcydDrFJauVA_PKAZ7VtDor/view)).
+4. Place `user-wallet-transactions.json` in the `data/` folder.
+5. Run: `python score_wallets.py`
 
 Extensibility
 
@@ -51,7 +53,15 @@ Experiment with other models (e.g., XGBoost) in train_and_score().
 
 Dependencies
 See requirements.txt for required Python packages (pandas, numpy, lightgbm, scikit-learn, matplotlib, seaborn).
+
 Data Assumptions
 
 The JSON file contains userWallet for wallet IDs, timestamp for transaction times, and actionData with type (e.g., 'Deposit', 'Borrow'), amount (as strings), and assetSymbol for assets.
 Non-numeric amount values are converted to floats; missing values are set to 0.
+
+### Link to the user-transactions json file:
+The below file is raw json file (~87MB)
+https://drive.google.com/file/d/1ISFbAXxadMrt7Zl96rmzzZmEKZnyW7FS/view?usp=sharing
+Or if you prefer the compressed zip file (~10MB)
+https://drive.google.com/file/d/14ceBCLQ-BTcydDrFJauVA_PKAZ7VtDor/view?usp=sharing
+
