@@ -1,0 +1,5 @@
+venv/
+data/user-wallet-transactions.json
+outputs/
+__pycache__/
+*.pyc
